@@ -22,7 +22,7 @@ BOOTSTRAP_DIR = ROOT / "bootstrap"
 SCRIPTS_DIR = ROOT / "scripts"
 USER_DIR = ROOT / "user"
 
-SHIPPED_SKILLS = {"implement-review", "my-router"}
+SHIPPED_SKILLS = {"implement-review", "my-router", "ci-mockup-figure", "readme-polish"}
 
 
 def read_text(path: Path) -> str:
@@ -257,7 +257,7 @@ class RepoValidationTests(unittest.TestCase):
         skill_names = {path.name for path in self.skills}
         self.assertEqual(
             skill_names, SHIPPED_SKILLS,
-            "Unexpected skill set. v1.0 ships only implement-review and my-router.",
+            "Unexpected shipped skill set. Update SHIPPED_SKILLS and the public docs together.",
         )
 
     def test_agents_has_fetched_copy_guard(self) -> None:

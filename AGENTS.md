@@ -52,7 +52,7 @@ Bootstrap also sets up user-level config: it copies `scripts/guard.py` to `~/.cl
 | Content | Source | How fetched |
 |---------|--------|-------------|
 | User profile, writing defaults, formatting rules, environment notes | `AGENTS.md` (this file) | `curl` raw file |
-| Shared skills (`implement-review`, `my-router`) | `skills/` directory (committed only) | sparse `git clone` |
+| Shared skills (`implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`) | `skills/` directory (committed only) | sparse `git clone` |
 | Claude pointer commands for shared skills | `.claude/commands/` | sparse `git clone` plus non-destructive copy into the project `.claude/commands/` |
 | Claude project defaults (`permissions`, `attribution`, etc.) | `.claude/settings.json` | sparse `git clone` plus key-level merge into the project `.claude/settings.json` on every run |
 

@@ -11,6 +11,46 @@ Version tags apply uniformly to the repo content **and** the matching `anywhere-
 
 _No unreleased changes queued._
 
+## [0.1.2] — 2026-04-16
+
+Two new shipped skills (`ci-mockup-figure`, `readme-polish`), Read the Docs site launch, scenario-first README, reframed hero (project is the subject, author credentials become supporting evidence), Scenario B visualized as a left-to-right flowchart, and the usual round of Codex-driven corrections.
+
+### Added
+
+- **Skill: `ci-mockup-figure`** — build HTML mockups of systems, dashboards, and timelines, then capture as space-efficient PNG / PDF figures via headless Chrome. Includes an abstract-diagram path using TikZ or skia-canvas for architecture figures that need arrow routing between non-adjacent nodes. Covers tool selection, design principles, capture workflow, and LaTeX / Markdown insertion.
+- **Skill: `readme-polish`** — audit a GitHub README and rewrite using modern 2025-2026 patterns: centered header, Shield.io badges, dot-separated nav, hero image, `> [!NOTE]` / `> [!TIP]` callouts, emoji-prefixed feature bullets, collapsible `<details>` for reference material, Mermaid diagrams, tables over dense prose. Ships with a patterns reference catalog and a pre-publish audit checklist.
+- **Read the Docs site** — [anywhere-agents.readthedocs.io](https://anywhere-agents.readthedocs.io/). MkDocs + Material with a custom USC cardinal palette (`#990000`). Covers install, per-skill deep docs (via `mkdocs-include-markdown-plugin` so each skill page pulls directly from its `SKILL.md`), an `AGENTS.md` section-by-section reference, and a collapsible FAQ. Changelog is mirrored from the repo. New repo files: `.readthedocs.yaml`, `mkdocs.yml`, `docs/requirements.txt`, `docs/stylesheets/extra.css`, and `docs/*.md` content. Dependencies are upper-bounded so a future MkDocs 2.0 release cannot silently break the build.
+- **`docs/skills/references/`** — pass-through pages for `review-lenses.md`, `routing-table.md`, `patterns.md`, and `checklist.md`. Links from inside each `SKILL.md` now resolve to real docs pages on RTD. `mkdocs build --strict --clean` is clean.
+- **README RTD docs badge** — next to PyPI / npm / License / CI / Stars.
+- **README "How to update" section** inside Install explaining that re-running the install command updates, plus the one-liner force refresh for mid-session.
+
+### Changed
+
+- **README restructured around four scenarios.** Replaces the adjacent "The agentic workflow this encodes" principle table and "What you get after setup" feature list with **What it does in practice** — A: add to any project, B: review before you push (left-to-right flowchart), C: writing that does not sound like an AI (with highlighted banned words and a before / after), D: Git safety catches mistakes. Reference-shaped content (day-to-day table, "what is opinionated" table) moves into collapsibles. Dot-nav points at Scenarios / Docs.
+- **Hero reframed.** The project is visually primary; the author avatar is removed; PyOD credentials are supporting evidence under a "Built by…" line with PyOD described in context ("a widely used Python anomaly detection library") and numbers smaller and muted. Sig-strip pill changed from "What you get" to "Condensed experience" with the lead line "distilled from daily use since early 2026 across research, paper writing, and dev work." Panel 4 shows dispatch across the four shipped skills. Panel 5 removes `rm -rf` (not guard-scoped) and shows `git rebase` instead. Footer shows `4 shipped skills · anywhere-agents.readthedocs.io`.
+- **Maintainer callout reframed** from "Maintained by [Yue Zhao]…" opener to "**Condensed from daily use.**" opener, with credentials moved to the end as backing evidence.
+- **Scenario B visual** changed from a sequence diagram to a left-to-right flowchart with a loop-back arrow. Actor lanes disappear; the flow reads as one linear pipeline with an explicit `{clean?}` decision.
+- **`skills/my-router/references/routing-table.md`** lists concrete keyword, file-type, and directory rules for all four shipped skills (previously only `implement-review`).
+- **`skills/my-router/SKILL.md`** intro reflects the four-skill shipped set and includes dispatch examples for `ci-mockup-figure` and `readme-polish`.
+- **`AGENTS.md`** "What gets shared" table lists all four shipped skills.
+- **`.gitignore`** — added `site/` so local `mkdocs build` output does not leak into `git add -A`.
+
+### Fixed
+
+- **MkDocs strict build broken on included-link warnings** (Round 1, Medium). Included `SKILL.md` bodies referenced `references/*.md` that were not docs pages. Resolved by adding pass-through pages under `docs/skills/references/`, setting `rewrite_relative_urls: false` on the include-markdown plugin, and reorganizing the nav so reference pages appear as sub-items under each skill. `mkdocs build --strict --clean` now completes with zero warnings.
+- **`tests/test_repo.py:260` stale two-skill-era failure message** (Round 1, Low). Replaced with a version-agnostic message pointing the maintainer at `SHIPPED_SKILLS` and the public docs together.
+- **CHANGELOG scenario order mismatch** (Round 1, Low). Parenthetical listed scenarios as A-C-B-D; corrected to A-B-C-D.
+- **Docs build dependency drift risk** (Round 2, Medium). `docs/requirements.txt` now carries upper bounds on every pin (`mkdocs<2.0`, `mkdocs-material<10.0`, `mkdocs-include-markdown-plugin<8.0`, `pymdown-extensions<11.0`) so a future RTD rebuild cannot pick up a breaking major.
+- **Generated `site/` directory not ignored** (Round 2, Low). Added to `.gitignore` under a "MkDocs build output" comment.
+
+### Review history
+
+0.1.2 passed two rounds of `implement-review` with Codex before release:
+
+- **Round 1**: 5 findings (2 Medium + 3 Low) covering MkDocs broken links, stale test message, CHANGELOG scenario order, and stale two-skill framing in the private relationship doc. All Fixed.
+- **Round 2**: 3 findings (2 Medium + 1 Low) covering docs build dependency bounds, `site/` in `.gitignore`, and adding `mkdocs build --strict --clean` to the private release gate. All Fixed.
+- No High-priority findings in either round.
+
 ## [0.1.1] — 2026-04-16
 
 Release-hygiene follow-up. Documentation and layout improvements since 0.1.0, and package source is now fully reproducible from the repository.
@@ -96,6 +136,7 @@ Initial public release. The sanitized downstream of the author's private daily-d
 - **Medium** — README / CHANGELOG / hero overstated the guard hook's scope by listing `rm -rf` alongside Git/GitHub commands. Corrected to distinguish guard-covered commands from settings-based permission prompts.
 - **Low** — Trailing whitespace in `AGENTS.md`; `docs/hero.html` external avatar URL (vendored to `docs/avatar.jpg` for reproducibility). Both fixed.
 
-[Unreleased]: https://github.com/yzhao062/anywhere-agents/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/yzhao062/anywhere-agents/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/yzhao062/anywhere-agents/releases/tag/v0.1.2
 [0.1.1]: https://github.com/yzhao062/anywhere-agents/releases/tag/v0.1.1
 [0.1.0]: https://github.com/yzhao062/anywhere-agents/releases/tag/v0.1.0

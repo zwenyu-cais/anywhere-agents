@@ -9,7 +9,7 @@ description: Context-aware router that detects work type and dispatches to the r
 
 A routing layer that sits between the outer workflow (e.g., `superpowers` brainstorm/plan/execute/verify) and domain skills. The router reads the working directory, file types, and user prompt to decide which skill to invoke, so the user does not need to remember skill names.
 
-In this repo's shipped form, the routing table has only one concrete entry (`implement-review`). The router is designed as a **pattern you extend**: add entries for your own skills (whether local to your fork of this repo or local to a consuming project) and the router will dispatch to them.
+In this repo's shipped form, the routing table has concrete entries for the four shipped skills (`implement-review`, `ci-mockup-figure`, `readme-polish`, plus `my-router` itself). It is also designed as a **pattern you extend**: add entries for your own skills (whether local to your fork of this repo or local to a consuming project) and the router will dispatch to them.
 
 ## When to Use Superpowers vs. Direct Dispatch
 
@@ -36,13 +36,13 @@ At dispatch time, the router checks three signals in order:
 
 ### 1. Prompt keywords (highest priority)
 
-The user's prompt often contains the clearest signal. The shipped routing table lists only `implement-review`; extend it with your own skill entries.
+The user's prompt often contains the clearest signal. The shipped routing table includes keyword entries for `implement-review`, `ci-mockup-figure`, and `readme-polish`. Extend it in your fork with entries for your own skills.
 
 See [`references/routing-table.md`](references/routing-table.md) for the current table and the extension template.
 
 ### 2. File types in working directory
 
-If prompt keywords are ambiguous, inspect the files being worked on. The shipped router recognizes staged git changes as a signal to invoke `implement-review`. Add your own file-type rules when you add new skills.
+If prompt keywords are ambiguous, inspect the files being worked on. The shipped router recognizes staged git changes → `implement-review`, HTML mockup files for dashboards/timelines → `ci-mockup-figure`, and a top-level `README.md` flagged for polish → `readme-polish`. Add your own file-type rules when you add new skills.
 
 ### 3. Project structure hints
 
@@ -94,6 +94,12 @@ See `implement-review/SKILL.md` for the review loop protocol.
 
 **User says:** "Build the feature and review it"
 → Router detects: code context → superpowers handles the build, then router dispatches to `implement-review` with code lens.
+
+**User says:** "Make an HTML mockup for the method figure"
+→ Router detects: keyword "mockup" → dispatches to `ci-mockup-figure`.
+
+**User says:** "Polish the README with modern patterns"
+→ Router detects: keyword "polish README" → dispatches to `readme-polish`.
 
 **User says:** (anything else, shipped router has no rule)
 → Router falls through to superpowers or general agent behavior. Add more rules by editing `references/routing-table.md`.

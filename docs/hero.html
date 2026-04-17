@@ -264,25 +264,24 @@
 <body>
 <div class="sheet">
 
-  <!-- Cardinal header bar, matches yzhao062.github.io navbar -->
+  <!-- Cardinal header bar: project is the subject, author is supporting evidence -->
   <div class="topbar">
-    <img class="avatar" src="avatar.jpg" alt="Yue Zhao" onerror="this.style.display='none'">
     <div class="name-stack">
       <div class="project">anywhere-agents</div>
       <div class="tagline">A portable, battle-tested AI agent stack · fork it, run it in any repo</div>
     </div>
     <div class="spacer"></div>
     <div class="credential">
-      <div class="who">Yue Zhao</div>
-      <div class="usc">Assistant Professor · USC Viterbi · FORTIS Lab</div>
-      <div class="usc">PyOD 9.8k★ · 38M+ downloads · 12k+ citations</div>
+      <div class="who">Built by Yue Zhao · USC CS faculty</div>
+      <div class="usc">Author of PyOD — a widely used Python anomaly detection library</div>
+      <div class="usc" style="font-size: 11.5px; opacity: 0.85;">38M+ downloads · 12k+ research citations · 9.8k★</div>
     </div>
   </div>
 
-  <!-- Signature tinted strip, echoes site's cardinal left-border callout -->
+  <!-- Signature tinted strip: framing is "condensed experience," not "look at me" -->
   <div class="sig-strip">
-    <span class="pill">What you get</span>
-    <span class="lead">Six opinionated defaults, <b>tuned from daily use</b> across many repos, machines, and workflows. Consume directly or fork.</span>
+    <span class="pill">Condensed experience</span>
+    <span class="lead">Six opinionated defaults, <b>distilled from daily use since early 2026</b> across research, paper writing, and dev work. Not a weekend project — consume directly or fork.</span>
   </div>
 
   <div class="grid-wrap">
@@ -345,15 +344,14 @@
       <div class="panel c4">
         <div class="panel-head">
           <div class="panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-          <div class="panel-title">Auto-dispatch to the right skill</div>
+          <div class="panel-title">Auto-dispatch across 4 shipped skills</div>
         </div>
         <div class="panel-body">
-          <div class="prompt-line"><span class="user">you:</span><span>"review this"</span></div>
-          <div class="prompt-line router-out">· detects staged changes</div>
-          <div class="prompt-line router-out">· content type: code</div>
-          <div class="prompt-line router-out">· dispatches <span style="color: var(--c4); font-weight: 700;">implement-review</span></div>
-          <div class="prompt-line router-out">· lens: code (Google eng-practices)</div>
-          <div class="prompt-line" style="margin-top: 5px;"><span class="arrow">⇒</span><span style="color: var(--c3); font-weight: 600;">review starts, no skill name typed</span></div>
+          <div class="prompt-line"><span class="user">"review this"</span><span class="arrow">⇒</span><span style="color: var(--c4); font-weight: 700;">implement-review</span></div>
+          <div class="prompt-line"><span class="user">"make mockup"</span><span class="arrow">⇒</span><span style="color: var(--c4); font-weight: 700;">ci-mockup-figure</span></div>
+          <div class="prompt-line"><span class="user">"polish readme"</span><span class="arrow">⇒</span><span style="color: var(--c4); font-weight: 700;">readme-polish</span></div>
+          <div class="prompt-line router-out" style="margin-top: 5px;">+ file types, directory hints</div>
+          <div class="prompt-line" style="margin-top: 3px;"><span class="arrow">⇒</span><span style="color: var(--c3); font-weight: 600;">no skill name typed, ever</span></div>
         </div>
         <div class="takeaway"><span class="arrow">→</span> keyword · file type · directory hint routing</div>
       </div>
@@ -368,8 +366,8 @@
           <div class="git-rule"><span class="ask">ASK</span><code>git commit *</code></div>
           <div class="git-rule"><span class="ask">ASK</span><code>git push *</code></div>
           <div class="git-rule"><span class="ask">ASK</span><code>git reset --hard *</code></div>
+          <div class="git-rule"><span class="ask">ASK</span><code>git rebase *</code></div>
           <div class="git-rule"><span class="ask">ASK</span><code>gh pr merge *</code></div>
-          <div class="git-rule"><span class="ask">ASK</span><code>rm -rf *</code></div>
           <div style="margin-top: 4px; font-size: 11.5px; color: var(--muted);">Read-only <code style="background: var(--paper); padding: 1px 4px; border-radius: 3px; border: 1px solid var(--line);">git status</code> <code style="background: var(--paper); padding: 1px 4px; border-radius: 3px; border: 1px solid var(--line);">git diff</code> stay silent</div>
         </div>
         <div class="takeaway"><span class="arrow">→</span> muscle-memory yes cannot hurt you</div>
@@ -399,9 +397,9 @@
   <div class="footer">
     <span><b>one-line bootstrap</b></span>
     <span class="sep">·</span>
-    <span>fork or consume directly</span>
+    <span><b>4 shipped skills</b></span>
     <span class="sep">·</span>
-    <span>git is the subscription engine</span>
+    <span>anywhere-agents.readthedocs.io</span>
     <span class="sep">·</span>
     <span class="kbd">macOS · Linux · Windows</span>
   </div>

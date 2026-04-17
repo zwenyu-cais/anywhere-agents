@@ -1,0 +1,33 @@
+/* USC cardinal palette for anywhere-agents on Read the Docs */
+
+:root {
+  --md-primary-fg-color:        #990000;
+  --md-primary-fg-color--light: #b31b1b;
+  --md-primary-fg-color--dark:  #7a0000;
+  --md-accent-fg-color:         #990000;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #c41e3a;
+  --md-primary-fg-color--light: #d94b63;
+  --md-primary-fg-color--dark:  #8b1728;
+  --md-accent-fg-color:         #e53e3e;
+}
+
+.md-typeset a {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset a:hover {
+  color: var(--md-primary-fg-color--light);
+}
+
+/* Header bar uses the primary color in Material; these keep the rest
+   of the site consistent with the README hero image. */
+.md-header {
+  background-color: var(--md-primary-fg-color);
+}
+
+.md-tabs {
+  background-color: var(--md-primary-fg-color--dark);
+}

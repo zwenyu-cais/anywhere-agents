@@ -12,3 +12,6 @@ packages/pypi/**/*.egg-info/
 # npm package build artifacts
 packages/npm/node_modules/
 packages/npm/*.tgz
+
+# MkDocs build output
+site/

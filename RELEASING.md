@@ -76,7 +76,7 @@ ssh yzhao062@spark-37f2.local '
   else
     git clone https://github.com/yzhao062/agent-config.git ~/agent-config
   fi
-  cd ~/agent-config && python3 -B -m unittest discover -s tests -p "test_*.py" 2>&1 | tail -5
+  python3 -B -m unittest discover -s ~/agent-config/tests -p "test_*.py" 2>&1 | tail -5
 '
 # Must report "OK" (any number of passes, skipped allowed). If not, stop and investigate on Spark
 # before tagging. Typical failures: Linux-specific path handling in new hook logic, shell script

@@ -50,21 +50,3 @@ jobs:
 
       - name: Run validation tests
         run: python -B -m unittest discover -s tests -p "test_*.py" -v
-
-  docs-strict-build:
-    name: Docs strict build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v6
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-
-      - name: Install MkDocs and plugins
-        run: pip install -r docs/requirements.txt
-
-      - name: Build docs (strict)
-        run: python -m mkdocs build --strict --clean

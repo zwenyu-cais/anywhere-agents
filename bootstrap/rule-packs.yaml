@@ -1,0 +1,17 @@
+# Rule-pack manifest for anywhere-agents.
+#
+# Each entry registers a rule pack that consumers can opt into via
+# agent-config.yaml at the consumer repo root. Adding a new pack is a PR:
+# add a manifest entry here, and the pack author must publish
+# docs/rule-pack.md at a stable git ref on their own repo.
+#
+# See docs/rule-pack-composition.md for the full contract.
+version: 1
+packs:
+  - name: agent-style
+    description: >
+      Writing-rule pack. Banned-word list, formatting defaults,
+      contraction rules, and dash usage guidance.
+    source: https://raw.githubusercontent.com/yzhao062/agent-style/{ref}/docs/rule-pack.md
+    default-ref: v0.3.2
+    maintainer: yzhao062

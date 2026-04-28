@@ -9,7 +9,7 @@ description: Context-aware router that detects work type and dispatches to the r
 
 A routing layer that sits between the outer workflow (e.g., `superpowers` brainstorm/plan/execute/verify) and domain skills. The router reads the working directory, file types, and user prompt to decide which skill to invoke, so the user does not need to remember skill names.
 
-In this repo's shipped form, the routing table has concrete entries for the four shipped skills (`implement-review`, `ci-mockup-figure`, `readme-polish`, plus `my-router` itself). It is also designed as a **pattern you extend**: add entries for your own skills (whether local to your fork of this repo or local to a consuming project) and the router will dispatch to them.
+In this repo's shipped form, the routing table has concrete entries for the five shipped skills (`implement-review`, `ci-mockup-figure`, `readme-polish`, `code-release`, plus `my-router` itself). It is also designed as a **pattern you extend**: add entries for your own skills (whether local to your fork of this repo or local to a consuming project) and the router will dispatch to them.
 
 ## When to Use Superpowers vs. Direct Dispatch
 

@@ -33,7 +33,7 @@
 
 你对 AI 智能体行为的偏好（如何进行代码审查、采用什么写作风格、哪些 Git 操作必须确认、哪些"AI 味儿"的词永远不要输出）如今通常以以下三种破碎状态之一存在：散落在各个仓库的 `CLAUDE.md` 文件里，日久偏移；从一个项目复制粘贴到另一个，每次微调都产生分叉；或者只在你脑子里，每个会话对每个智能体重新解释一次。
 
-我从 2026 年初开始每天在科研代码、论文写作、行政工作中使用 Claude Code 与 Codex。日常使用让哪些规则真正需要自动化变得清晰：一个在仓库和机器间同步配置的 bootstrap；一个把 diff 交给 Codex 审查并循环迭代的审查工作流；以及一批在提示层面反复失败、最终变成钩子或检查的规则。`anywhere-agents` 把这三件事（可移植同步、审查工作流、机械化执行）作为一份维护中的配置一起发布。四个内置技能（`implement-review`、`my-router`、`ci-mockup-figure`、`readme-polish`）覆盖审查、路由、图表、README。Fork 它，替换部件，保留上游更新。
+我从 2026 年初开始每天在科研代码、论文写作、行政工作中使用 Claude Code 与 Codex。日常使用让哪些规则真正需要自动化变得清晰：一个在仓库和机器间同步配置的 bootstrap；一个把 diff 交给 Codex 审查并循环迭代的审查工作流；以及一批在提示层面反复失败、最终变成钩子或检查的规则。`anywhere-agents` 把这三件事（可移植同步、审查工作流、机械化执行）作为一份维护中的配置一起发布。五个内置技能（`implement-review`、`my-router`、`ci-mockup-figure`、`readme-polish`、`code-release`）覆盖审查、路由、图表、README、发布前审计。Fork 它，替换部件，保留上游更新。
 
 它不止是风格指南：钩子会阻止有风险的命令悄悄执行，并在落盘前拦下含被禁用词的散文写入。
 
@@ -61,7 +61,7 @@ your-project/
 ├── CLAUDE.md              # generated from AGENTS.md for Claude Code
 ├── agents/codex.md        # generated from AGENTS.md for Codex
 ├── .claude/
-│   ├── commands/          # skill pointers: `implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`
+│   ├── commands/          # skill pointers: `implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`, `code-release`
 │   └── settings.json      # your project keys merged with shared keys
 └── .agent-config/         # upstream cache (auto-gitignored)
 ```
@@ -222,7 +222,7 @@ Invoke-WebRequest -UseBasicParsing -Uri https://raw.githubusercontent.com/yzhao0
 
 完整参考见 **[anywhere-agents.readthedocs.io](https://anywhere-agents.readthedocs.io)**：
 
-- 每个技能的深度文档（`implement-review`、`my-router`、`ci-mockup-figure`、`readme-polish`）
+- 每个技能的深度文档（`implement-review`、`my-router`、`ci-mockup-figure`、`readme-polish`、`code-release`）
 - `AGENTS.md` 分节参考
 - 定制指南（fork、覆盖、扩展）
 - FAQ、故障排除、平台说明（Windows、macOS、Linux）
@@ -305,6 +305,7 @@ anywhere-agents/
 │   └── remote-smoke.sh            # post-publish real-agent smoke (validates published install)
 ├── skills/
 │   ├── ci-mockup-figure/          # HTML mockups + TikZ/skia-canvas for figures
+│   ├── code-release/              # pre-release audit checklist for research code repos
 │   ├── implement-review/          # dual-agent review loop with Phase 0 plan-review (signature skill)
 │   ├── my-router/                 # context-aware skill dispatcher
 │   └── readme-polish/             # audit + rewrite GitHub READMEs with modern patterns

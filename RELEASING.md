@@ -47,7 +47,7 @@ bash ../agent-config/scripts/check-parity.sh
 #        scripts/{guard.py, session_bootstrap.py, generate_agent_configs.py, pre-push-smoke.sh,
 #        remote-smoke.sh}, .claude/settings.json, .githooks/pre-push,
 #        .github/workflows/{real-agent-smoke.yml, validate.yml}, .claude/commands/*.md for
-#        each of the 4 shipped skills, skills/{implement-review,ci-mockup-figure,readme-polish}
+#        each of the 5 shipped skills, skills/{implement-review,ci-mockup-figure,readme-polish,code-release}
 #        recursive trees.
 #      BY-DESIGN (expected to differ; both sides must exist; a +/- line delta is
 #      reported per file for eyeball):

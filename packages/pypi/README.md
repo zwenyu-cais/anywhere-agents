@@ -19,7 +19,7 @@ Runs the shell bootstrap from the upstream repo in the current directory:
 
 - Fetches `AGENTS.md` and replaces the local copy
 - Sparse-clones the upstream repo into `.agent-config/`
-- Syncs the shipped skills (`implement-review`, `my-router`) and their Claude Code command pointers
+- Syncs the shipped skills (`implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`, `code-release`) and their Claude Code command pointers
 - Deep-merges project-level `.claude/settings.json`
 - Deploys the safety guard hook to `~/.claude/hooks/guard.py` and merges user-level permissions
 - Adds `.agent-config/` to `.gitignore`

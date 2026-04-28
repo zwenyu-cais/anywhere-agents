@@ -8,8 +8,9 @@
 | `my-router` | any task (this skill) | Detects context and dispatches to the right skill |
 | `ci-mockup-figure` | "mockup", "HTML figure", "dashboard mockup", "timeline figure", "Gantt", "TikZ figure", "arrow routing" | Build HTML mockups of systems, dashboards, and timelines, then capture as space-efficient PNG/PDF figures; use TikZ or skia-canvas for abstract diagrams needing arrow routing |
 | `readme-polish` | "polish README", "modernize README", "README audit", "README rewrite", "README badges", "README hero image" | Audit a GitHub README and rewrite using modern 2025-2026 patterns (centered header, badges, hero image, GitHub alert callouts, emoji feature bullets, collapsibles, Mermaid diagrams) |
+| `code-release` | "release prep", "pre-release audit", "code release checklist", "preparing for public release", "ship the repo" | Pre-release audit for research code repos: secrets and `.env.template` parity, conda env reproducibility, README state (GPU spec, artifact location), licensing, conda/SLURM idioms, repository hygiene |
 
-The shipped routing table covers the four skills above. Extend it in your fork (or in consuming projects) with rows for your own skills.
+The shipped routing table covers the five skills above. Extend it in your fork (or in consuming projects) with rows for your own skills.
 
 ## Extension Template
 
@@ -22,6 +23,7 @@ Copy this section and extend it with your own skills. When a user's prompt match
 | "review staged", "review changes", "review the diff" | `implement-review` | shipped |
 | "mockup", "HTML figure", "HTML mockup", "interactive figure", "dashboard mockup", "Gantt", "screenshotable figure", "capture mode", "skia-canvas", "TikZ figure", "arrow routing" | `ci-mockup-figure` | shipped |
 | "polish README", "modernize README", "README audit", "README rewrite", "README badges", "README hero image", "GitHub README patterns" | `readme-polish` | shipped |
+| "release prep", "pre-release audit", "code release checklist", "preparing for public release", "ship the repo", "release-ready check" | `code-release` | shipped |
 | `<your-keywords>` | `<your-skill-name>` | `skills/` (local) or shared |
 
 ### File-type routing
@@ -33,6 +35,7 @@ If prompt keywords are ambiguous, inspect the files being worked on:
 | Staged git changes | Review needed | `implement-review` |
 | HTML mockup files for systems, dashboards, or timelines | Figure source | `ci-mockup-figure` |
 | Top-level `README.md` flagged for audit or rewrite | Public-facing README | `readme-polish` |
+| `environment.yml` + `.env.template` + sbatch scripts present, with the user planning a public release | Research-code release prep | `code-release` |
 | `<your-file-type>` | `<your-context>` | `<your-skill>` |
 
 ### Directory-hint routing

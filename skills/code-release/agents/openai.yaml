@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Release"
+  short_description: "Pre-release audit checklist for research code repos"
+  default_prompt: "Use $code-release to audit a research code repo before public release: secrets and `.env.template` parity, `environment.yml` reproducibility, README state, licensing, conda/SLURM idioms, and repository hygiene. Look for the skill at skills/code-release/SKILL.md first, then .agent-config/repo/skills/code-release/SKILL.md."

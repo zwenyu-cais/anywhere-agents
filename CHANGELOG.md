@@ -9,7 +9,9 @@ Version tags apply uniformly to the repo content **and** the matching `anywhere-
 
 ## [Unreleased]
 
-_No unreleased changes queued._
+### Added
+
+- **`code-release` skill.** Pre-release audit checklist for research code repositories: secrets and `.env.template` parity, `environment.yml` reproducibility, README state (GPU spec, artifact location), licensing and vendored-fork attribution, conda/SLURM idioms, sweep-output `.gitignore` patterns, and repository hygiene around rename commits. The fifth shipped skill, alongside `implement-review`, `my-router`, `ci-mockup-figure`, and `readme-polish`. Invoke via `/code-release` (Claude Code) or `$code-release` (Codex). Distilled from real release-prep incidents — empty-value sbatch args, last-flag-only `sbatch --dependency`, vendored forks shadowed by pip pins, secret-on-disk vs. secret-in-git-history confusion.
 
 ## [0.3.0] — 2026-04-21
 

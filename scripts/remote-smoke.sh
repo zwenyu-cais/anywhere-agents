@@ -38,7 +38,7 @@
 set -euo pipefail
 
 # --- Configurable ------------------------------------------------------------
-EXPECTED_SKILLS=(implement-review my-router ci-mockup-figure readme-polish)
+EXPECTED_SKILLS=(implement-review my-router ci-mockup-figure readme-polish code-release)
 CLAUDE_PROMPT='List the shipped skills from AGENTS.md by directory name, comma-separated, no other text.'
 CODEX_PROMPT=$CLAUDE_PROMPT
 

@@ -33,7 +33,7 @@ A maintained, opinionated configuration that follows you across every project, e
 
 Your preferences for how AI agents work (how reviews happen, what writing style to use, which Git operations must confirm, which AI-tell words to never emit) today live in one of three broken states: scattered across per-repo `CLAUDE.md` files that drift over time, copy-pasted between projects diverging on every tweak, or only in your head and re-explained to every agent in every session.
 
-I started using Claude Code and Codex daily across research code, paper writing, and admin work in early 2026. Daily use exposed which rules actually needed automation: a bootstrap that syncs config across repos and machines; a review workflow that stages a diff, sends it to Codex, iterates; and a set of rules that kept failing at the prompt level until they became hooks or checks. `anywhere-agents` ships that (portable sync, review workflow, and mechanical enforcement) as one maintained configuration. Four shipped skills (`implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`) cover review, routing, figures, and READMEs. Fork it, swap pieces, keep upstream updates.
+I started using Claude Code and Codex daily across research code, paper writing, and admin work in early 2026. Daily use exposed which rules actually needed automation: a bootstrap that syncs config across repos and machines; a review workflow that stages a diff, sends it to Codex, iterates; and a set of rules that kept failing at the prompt level until they became hooks or checks. `anywhere-agents` ships that (portable sync, review workflow, and mechanical enforcement) as one maintained configuration. Five shipped skills (`implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`, `code-release`) cover review, routing, figures, READMEs, and pre-release auditing. Fork it, swap pieces, keep upstream updates.
 
 It is not only a style guide: hooks stop risky commands from proceeding silently and block flagged prose writes before they land.
 
@@ -61,7 +61,7 @@ your-project/
 ├── CLAUDE.md              # generated from AGENTS.md for Claude Code
 ├── agents/codex.md        # generated from AGENTS.md for Codex
 ├── .claude/
-│   ├── commands/          # skill pointers: `implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`
+│   ├── commands/          # skill pointers: `implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`, `code-release`
 │   └── settings.json      # your project keys merged with shared keys
 └── .agent-config/         # upstream cache (auto-gitignored)
 ```
@@ -273,7 +273,7 @@ Source: [PyPI](https://pypi.org/project/anywhere-agents/) · [npm](https://www.n
 
 Full reference lives at **[anywhere-agents.readthedocs.io](https://anywhere-agents.readthedocs.io)**:
 
-- Per-skill deep documentation (`implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`)
+- Per-skill deep documentation (`implement-review`, `my-router`, `ci-mockup-figure`, `readme-polish`, `code-release`)
 - `AGENTS.md` section-by-section reference
 - Customization guide (fork, override, extend)
 - FAQ, troubleshooting, platform notes (Windows, macOS, Linux)
@@ -356,6 +356,7 @@ anywhere-agents/
 │   └── remote-smoke.sh            # post-publish real-agent smoke (validates published install)
 ├── skills/
 │   ├── ci-mockup-figure/          # HTML mockups + TikZ/skia-canvas for figures
+│   ├── code-release/              # pre-release audit checklist for research code repos
 │   ├── implement-review/          # dual-agent review loop with Phase 0 plan-review (signature skill)
 │   ├── my-router/                 # context-aware skill dispatcher
 │   └── readme-polish/             # audit + rewrite GitHub READMEs with modern patterns

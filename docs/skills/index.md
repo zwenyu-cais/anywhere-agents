@@ -1,6 +1,6 @@
 # Skills
 
-`anywhere-agents` ships four skills. Each is a self-contained capability with its own `SKILL.md` definition. The router (`my-router`) dispatches automatically based on prompt keywords, file types, and directory hints.
+`anywhere-agents` ships five skills. Each is a self-contained capability with its own `SKILL.md` definition. The router (`my-router`) dispatches automatically based on prompt keywords, file types, and directory hints.
 
 <div class="grid cards" markdown>
 
@@ -36,6 +36,14 @@
 
     [:octicons-arrow-right-24: Deep docs](readme-polish.md)
 
+-   :material-rocket-launch-outline:{ .lg .middle } &nbsp; __`code-release`__
+
+    ---
+
+    Pre-release audit for research code repos. Secrets, conda envs, README state, licensing, SLURM idioms, repo hygiene.
+
+    [:octicons-arrow-right-24: Deep docs](code-release.md)
+
 </div>
 
 ## Skill lookup order
@@ -57,4 +65,4 @@ In a fork of `anywhere-agents`:
 3. Register the skill in `skills/my-router/references/routing-table.md` with triggering keywords, file types, and directory hints.
 4. Add regression tests where appropriate under `tests/`.
 
-See the four shipped skills for reference structure.
+See the five shipped skills for reference structure.

@@ -21,7 +21,7 @@ from pathlib import Path
 
 from . import __version__
 
-REPO = "yzhao062/anywhere-agents"
+REPO = "zwenyu-cais/anywhere-agents"
 BRANCH = "main"
 
 

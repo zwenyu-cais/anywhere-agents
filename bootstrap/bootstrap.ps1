@@ -51,7 +51,7 @@ if (-not $Upstream) { $Upstream = $env:AGENT_CONFIG_UPSTREAM }
 if (-not $Upstream -and (Test-Path .agent-config/upstream)) {
   $Upstream = (Get-Content .agent-config/upstream -Raw).Trim()
 }
-if (-not $Upstream) { $Upstream = 'yzhao062/anywhere-agents' }
+if (-not $Upstream) { $Upstream = 'zwenyu-cais/anywhere-agents' }
 New-Item -ItemType Directory -Force -Path .agent-config | Out-Null
 Set-Content -Path .agent-config/upstream -Value $Upstream -NoNewline
 

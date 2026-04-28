@@ -28,7 +28,7 @@
 #
 # Usage:
 #   bash scripts/remote-smoke.sh                # run against current upstream
-#   ANYWHERE_AGENTS_REPO=yzhao062/anywhere-agents bash scripts/remote-smoke.sh
+#   ANYWHERE_AGENTS_REPO=zwenyu-cais/anywhere-agents bash scripts/remote-smoke.sh
 #
 # Direct SSH invocation from another machine (with an SSH alias like `spark`
 # configured in ~/.ssh/config — see agent-config/docs/dgx-spark-setup.md
@@ -57,7 +57,7 @@ if [ -z "${INSTALL_CMD:-}" ]; then
   elif command -v npx >/dev/null 2>&1; then
     INSTALL_CMD="npx --yes anywhere-agents"
   else
-    INSTALL_CMD='mkdir -p .agent-config && curl -sfL https://raw.githubusercontent.com/yzhao062/anywhere-agents/main/bootstrap/bootstrap.sh -o .agent-config/bootstrap.sh && bash .agent-config/bootstrap.sh'
+    INSTALL_CMD='mkdir -p .agent-config && curl -sfL https://raw.githubusercontent.com/zwenyu-cais/anywhere-agents/main/bootstrap/bootstrap.sh -o .agent-config/bootstrap.sh && bash .agent-config/bootstrap.sh'
   fi
 fi
 

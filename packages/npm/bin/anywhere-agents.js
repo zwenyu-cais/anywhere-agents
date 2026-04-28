@@ -14,7 +14,7 @@ const path = require("path");
 const https = require("https");
 const { spawnSync } = require("child_process");
 
-const REPO = "yzhao062/anywhere-agents";
+const REPO = "zwenyu-cais/anywhere-agents";
 const BRANCH = "main";
 const VERSION = require(path.join(__dirname, "..", "package.json")).version;
 

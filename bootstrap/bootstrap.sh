@@ -96,7 +96,7 @@ elif [ -n "${AGENT_CONFIG_UPSTREAM:-}" ]; then
 elif [ -f .agent-config/upstream ]; then
   UPSTREAM="$(tr -d '\r\n' < .agent-config/upstream)"
 fi
-UPSTREAM="${UPSTREAM:-yzhao062/anywhere-agents}"
+UPSTREAM="${UPSTREAM:-zwenyu-cais/anywhere-agents}"
 mkdir -p .agent-config
 printf '%s' "$UPSTREAM" > .agent-config/upstream
 
